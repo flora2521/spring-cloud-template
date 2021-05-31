@@ -1,5 +1,6 @@
 package org.yi.orderservice.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,21 +15,27 @@ import org.yi.orderservice.fegin.ProductClient;
  * @date 2021/5/28 16:25
  */
 
+@Slf4j
 @RestController
 @RequestMapping("/api/v1/order")
 public class OrderController {
-
-    private final Logger logger = LoggerFactory.getLogger(getClass());
 
     @Autowired
     private ProductClient productClient;
 
     @GetMapping(value = "/service")
     public String orderService() {
-        logger.info("Order Service Is Called...");
+        log.info("Order Service Is Called...");
         String ret = productClient.productService();
-        logger.info(ret.toString());
+        log.info(ret.toString());
         return "Order Service Is Called...";
+    }
+
+    @GetMapping(value = "/send-log")
+    public String sendLog() {
+        log.info("发送日志开始");
+        log.info("发送日志结束");
+        return "发送日志结束";
     }
 }
 
