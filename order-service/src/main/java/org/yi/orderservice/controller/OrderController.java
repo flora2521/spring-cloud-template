@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.yi.orderservice.fegin.ProductClient;
+import org.yi.orderservice.mapper.UserMapper;
+import org.yi.orderservice.module.entity.UserEntity;
 
 /**
  * @author Mao xiaolin
@@ -23,6 +25,9 @@ public class OrderController {
     @Autowired
     private ProductClient productClient;
 
+    @Autowired
+    private UserMapper userMapper;
+
     @GetMapping(value = "/service")
     public String orderService() {
         log.info("Order Service Is Called...");
@@ -36,6 +41,11 @@ public class OrderController {
         log.info("发送日志开始");
         log.info("发送日志结束");
         return "发送日志结束";
+    }
+
+    @GetMapping(value = "/user")
+    public UserEntity selectOneUser(Long id) {
+        return userMapper.selectOne(id);
     }
 }
 

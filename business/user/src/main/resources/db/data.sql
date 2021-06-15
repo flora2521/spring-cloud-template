@@ -1,1 +1,1 @@
-insert into user(id,name,password) values (null,'admin','admin');
+insert into user(id,name,password) values (1,'admin','admin');

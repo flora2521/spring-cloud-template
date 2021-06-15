@@ -24,12 +24,10 @@ spring:
         web-allow-others: true
 #************H2  end****************
 
-
-
-
-
-
-
+mybatis:
+  mapper-locations: classpath:/mapper/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl # 在console打印sql语句
 
 springCloud-test:
   ribbon.NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule

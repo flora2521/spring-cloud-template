@@ -16,8 +16,8 @@ import org.yi.user.module.entity.UserEntity;
 @RequestMapping("/user")
 public class UserController {
 
-    @Autowired
-    UserMapper userMapper;
+//    @Autowired
+//    UserMapper userMapper;
 
     @GetMapping("")
     public UserEntity selectOne(Long id) {
