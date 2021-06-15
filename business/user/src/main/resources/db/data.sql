@@ -1,0 +1,1 @@
+insert into user(id,name,password) values (null,'admin','admin');

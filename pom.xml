@@ -20,7 +20,8 @@
         <module>order-service</module>
         <module>gateway</module>
         <module>configure-common</module>
-        <module>sentinel/sentinel-service</module>
+        <module>sentinel</module>
+        <module>business</module>
     </modules>
 
     <properties>
