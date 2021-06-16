@@ -5,22 +5,29 @@ server:
 #************H2  Begin****************
 spring:
   datasource:
+    #  驱动
     driver-class-name: org.h2.Driver
+    # h2 内存数据库 内存模式连接配置 库名: mybatis
     url: jdbc:h2:mem:sleuth
-    schema: classpath:db/schema.sql #，每次启动程序，程序都会运行schema.sql文件，对数据库的数据操作
-    data: classpath:db/data.sql #，每次启动程序，程序都会运行data.sql文件，对数据库的数据操作
-    username: sa
-    password: ''
+    # 初始化数据表 DDL
+    schema: classpath:db/schema-h2.sql
+    #  初始化数据 DML
+    data: classpath:db/data-h2.sql
   h2:
+    #    开启console 访问 默认false
     console:
       enabled: true
-      path: /h2-console
       settings:
+        #      开启h2 console 跟踪 方便调试  默认 false
         trace: true
+        #      允许console 远程访问 默认false
         web-allow-others: true
+      #  h2 访问路径上下文
+      path: /h2-console
+# 日志
+logging:
+  level:
+    cn:
+      felord: debug
 
-  sql:
-    init:
-      schema-locations: classpath:db/schema-h2.sql
-      data-locations: classpath:db/data-h2.sql
 #************H2  end****************
